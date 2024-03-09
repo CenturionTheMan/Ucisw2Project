@@ -17,25 +17,27 @@ architecture Behavioral of PS2_Rx_Module is
 	signal currentState, nextState : state;
 	signal dataReg: STD_LOGIC_VECTOR (10 downto 0) := "11111111111";
 	signal bitCounter: STD_LOGIC_VECTOR (4 downto 0) := "0000";
-	signal fallingEdgeReg: STD_LOGIC_VECTOR (1 downto 0) := "00";
+	signal ps2ClockPrevValue: STD_LOGIC_VECTOR (1 downto 0) := "00";
+	signal isPs2ClockFalingEdge: STD_LOGIC := '0';
 	signal parityCheck: STD_LOGIC := '0';
 	
 begin
 
 	-- Faling edge check + assign
-	FALLING_EDGE_PROCESS : process(CLK) begin
+	PS2_CLOCK_SYNCH : process(CLK) begin
 		if rising_edge(CLK) then
-			-- do some magic with fallingEdgeReg to check if falling edge 
+			ps2ClockChangeReg(1) <= PS2_CLK; -- index 1 is current value
+			ps2ClockChangeReg(0) <= ps2ClockChangeReg(1); -- index 0 is previous value
+			isPs2ClockFalingEdge <= ps2ClockChangeReg(0) and (not ps2ClockChangeReg(1)); -- '1' -> '0' == falling edge
 		end if;
-		
 	end process;
 	
 	-- Count recived bits (used for state identyfication)
-	COUNTER_PROCESS : process(CLK, currentState. fallingEdgeReg, RESET) begin
+	COUNTER_PROCESS : process(CLK) begin
 		if rising_edge(CLK) then
 			if state = ready or RESET = '1' then
 				bitCounter <= X"0";
-			elsif (1) then --check if PS2_CLOCK == faling edge
+			elsif (isPs2ClockFalingEdge) then --check if PS2_CLOCK == faling edge
 				bitCounter <= bitCounter + 1;
 			end if;
 		end if;
@@ -43,11 +45,11 @@ begin
 	
 	
 	-- Save bits by shifting register to right each itearion (PS2 send from least to most signifi...)
-	BITS_RECEIVER : process(CLK, PS2_DATA, dataReg) begin
+	BITS_RECEIVER : process(CLK) begin
 		if rising_edge(CLK) then
 			if RESET = '1' then
 				dataReg <= "11111111111";
-			elsif (1) then --check if PS2_CLOCK == faling edge
+			elsif (isPs2ClockFalingEdge) then --check if PS2_CLOCK == faling edge
 				dataReg(9 downto 0) <= dataReg(10 downto 1);
 				dataReg(10) <= PS2_DATA;
 			end if;
@@ -59,7 +61,7 @@ begin
 
 	
 	-- assign state
-	STATE_SETUP : process(CLK, nextState) begin
+	STATE_SETUP : process(CLK) begin
 		if rising_edge(CLK) then --should be done in falling??
 			if reset = '1' then
 				currentState <= idle;
@@ -71,7 +73,7 @@ begin
 		
 	
 	-- handle states change
-	STATE_MACHINE : process(currentState, dataReg, parityCheck) begin
+	STATE_MACHINE : process(currentState, dataReg, parityCheck, ps2ClockChangeReg) begin
 		nextState <= currentState;
 		
 		case currentState is
