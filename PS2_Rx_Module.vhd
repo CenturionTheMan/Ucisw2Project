@@ -1,23 +1,24 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-
+use IEEE.NUMERIC_STD.ALL; --- check
+use ieee.std_logic_signed.all; --- check
 
 entity PS2_Rx_Module is
     Port ( CLK : in  STD_LOGIC;
-		   RESET : in STD_LOGIC;
+			  RESET : in STD_LOGIC;
            PS2_CLK : in  STD_LOGIC;
            PS2_DATA : in  STD_LOGIC;
            DATA_OUT : out  STD_LOGIC_VECTOR (7 downto 0);
-           READY : in  STD_LOGIC);
+           DATA_READY : out  STD_LOGIC);
 end PS2_Rx_Module;
 
 architecture Behavioral of PS2_Rx_Module is
-	type state is (idle, busy, dataCheck, ready);
+	type state is (idle, busy, dataCheck, dataReady);
 	
 	signal currentState, nextState : state;
 	signal dataReg: STD_LOGIC_VECTOR (10 downto 0) := "11111111111";
-	signal bitCounter: STD_LOGIC_VECTOR (4 downto 0) := "0000";
-	signal ps2ClockPrevValue: STD_LOGIC_VECTOR (1 downto 0) := "00";
+	signal bitCounter: STD_LOGIC_VECTOR (3 downto 0) := "0000";
+	signal ps2ClockChangeReg: STD_LOGIC_VECTOR (1 downto 0) := "00";
 	signal isPs2ClockFalingEdge: STD_LOGIC := '0';
 	signal parityCheck: STD_LOGIC := '0';
 	
@@ -35,9 +36,9 @@ begin
 	-- Count recived bits (used for state identyfication)
 	COUNTER_PROCESS : process(CLK) begin
 		if rising_edge(CLK) then
-			if state = ready or RESET = '1' then
+			if currentState = dataReady or RESET = '1' then
 				bitCounter <= X"0";
-			elsif (isPs2ClockFalingEdge) then --check if PS2_CLOCK == faling edge
+			elsif (isPs2ClockFalingEdge = '1') then --check if PS2_CLOCK == faling edge
 				bitCounter <= bitCounter + 1;
 			end if;
 		end if;
@@ -49,7 +50,7 @@ begin
 		if rising_edge(CLK) then
 			if RESET = '1' then
 				dataReg <= "11111111111";
-			elsif (isPs2ClockFalingEdge) then --check if PS2_CLOCK == faling edge
+			elsif (isPs2ClockFalingEdge = '1') then --check if PS2_CLOCK == faling edge
 				dataReg(9 downto 0) <= dataReg(10 downto 1);
 				dataReg(10) <= PS2_DATA;
 			end if;
@@ -57,7 +58,7 @@ begin
 	end process;
 	
 	-- check parity
-	parityCheck <= xor dataReg(9 downto 2);
+	parityCheck <= not(dataReg(8) xor dataReg(7) xor dataReg(6) xor dataReg(5) xor dataReg(4) xor dataReg(3) xor dataReg(2) xor dataReg(1));
 
 	
 	-- assign state
@@ -73,7 +74,7 @@ begin
 		
 	
 	-- handle states change
-	STATE_MACHINE : process(currentState, dataReg, parityCheck, ps2ClockChangeReg) begin
+	STATE_MACHINE : process(currentState, dataReg, parityCheck, ps2ClockChangeReg, bitCounter) begin
 		nextState <= currentState;
 		
 		case currentState is
@@ -85,25 +86,25 @@ begin
 			
 			-- receiving data
 			when busy =>
-				if counterReg = "1011" then
+				if bitCounter = "1011" then
 					nextState <= dataCheck;
 				end if;
 		
-			-- set to ready if correct, idle otherwise
+			-- set to dataReady if correct, idle otherwise
 			when dataCheck =>
-				if parityCheck and (not counterReg(0)) and not counterReg(10) = '1' then
-					nextState <= ready;
+				if parityCheck = dataReg(9) and dataReg(0) = '0' and dataReg(10) = '1' then
+					nextState <= dataReady;
 				else 
 					nextState <= idle;
 				end if;
 			
 			when others =>
-				currentState <= idle;
+				nextState <= idle;
 		end case;
 	end process;
 	
-	READY <= '1' when currentState = ready else '0';
-	DATA_OUT <= dataReg;
+	DATA_READY <= '1' when currentState = dataReady else '0';
+	DATA_OUT <= dataReg(10 downto 3);
 	
 end Behavioral;
 
