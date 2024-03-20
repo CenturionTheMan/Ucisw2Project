@@ -26,7 +26,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 4398560 kilobytes
+Total memory usage is 4398572 kilobytes
 
 Writing NGD file "PS2_Rx_Module.ngd" ...
 Total REAL time to NGDBUILD completion:  1 sec

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/Ucisw2Project/ps2TestBench_isim_beh.exe" -prj "D:/Ucisw2Project/ps2TestBench_beh.prj" "work.ps2TestBench" 

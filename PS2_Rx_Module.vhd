@@ -36,7 +36,7 @@ begin
 	-- Count recived bits (used for state identyfication)
 	COUNTER_PROCESS : process(CLK) begin
 		if rising_edge(CLK) then
-			if currentState = dataReady or RESET = '1' then
+			if RESET = '1' or currentState = idle then
 				bitCounter <= X"0";
 			elsif (isPs2ClockFalingEdge = '1') then --check if PS2_CLOCK == faling edge
 				bitCounter <= bitCounter + 1;
@@ -58,12 +58,13 @@ begin
 	end process;
 	
 	-- check parity
-	parityCheck <= not(dataReg(8) xor dataReg(7) xor dataReg(6) xor dataReg(5) xor dataReg(4) xor dataReg(3) xor dataReg(2) xor dataReg(1));
+	parityCheck <= not(dataReg(10) xor dataReg(8) xor dataReg(7) xor dataReg(6) xor dataReg(5) 
+						xor dataReg(4) xor dataReg(3) xor dataReg(2) xor dataReg(1) xor dataReg(0));
 
 	
 	-- assign state
 	STATE_SETUP : process(CLK) begin
-		if rising_edge(CLK) then --should be done in falling??
+		if rising_edge(CLK) then
 			if reset = '1' then
 				currentState <= idle;
 			else
@@ -98,13 +99,14 @@ begin
 					nextState <= idle;
 				end if;
 			
-			when others =>
+			when others => 
 				nextState <= idle;
+			
 		end case;
 	end process;
 	
 	DATA_READY <= '1' when currentState = dataReady else '0';
-	DATA_OUT <= dataReg(10 downto 3);
+	DATA_OUT <= dataReg(8 downto 1);
 	
 end Behavioral;
 

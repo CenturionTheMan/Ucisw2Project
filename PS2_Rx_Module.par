@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-LENOVO::  Wed Mar 20 17:58:58 2024
+LENOVO::  Wed Mar 20 19:26:23 2024
 
 par -w -intstyle ise -ol high -t 1 PS2_Rx_Module_map.ncd PS2_Rx_Module.ncd
 PS2_Rx_Module.pcf 
@@ -58,43 +58,43 @@ Total REAL time at the beginning of Placer: 0 secs
 Total CPU  time at the beginning of Placer: 0 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:1b8) REAL time: 0 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:1b8) REAL time: 1 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:1b8) REAL time: 0 secs 
+Phase 2.7  Design Feasibility Check (Checksum:1b8) REAL time: 1 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:1b8) REAL time: 0 secs 
+Phase 3.31  Local Placement Optimization (Checksum:1b8) REAL time: 1 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 .............
-Phase 4.2  Initial Clock and IO Placement (Checksum:177d55f9) REAL time: 0 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:177d55f9) REAL time: 1 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:177d55f9) REAL time: 0 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:177d55f9) REAL time: 1 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:177d55f9) REAL time: 0 secs 
+Phase 6.36  Local Placement Optimization (Checksum:177d55f9) REAL time: 1 secs 
 
 Phase 7.3  Local Placement Optimization
-..............
-Phase 7.3  Local Placement Optimization (Checksum:1f02beba) REAL time: 1 secs 
+.............
+Phase 7.3  Local Placement Optimization (Checksum:1f119a66) REAL time: 1 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:1f02beba) REAL time: 1 secs 
+Phase 8.5  Local Placement Optimization (Checksum:1f119a66) REAL time: 1 secs 
 
 Phase 9.8  Global Placement
-.......
-Phase 9.8  Global Placement (Checksum:672ea61d) REAL time: 1 secs 
+......
+Phase 9.8  Global Placement (Checksum:48def8e1) REAL time: 2 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:672ea61d) REAL time: 1 secs 
+Phase 10.5  Local Placement Optimization (Checksum:48def8e1) REAL time: 2 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:73a780f1) REAL time: 2 secs 
+Phase 11.18  Placement Optimization (Checksum:1cc7f5f2) REAL time: 2 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:73a780f1) REAL time: 2 secs 
+Phase 12.5  Local Placement Optimization (Checksum:1cc7f5f2) REAL time: 2 secs 
 
 Total REAL time to Placer completion: 2 secs 
 Total CPU  time to Placer completion: 2 secs 
@@ -109,9 +109,9 @@ Phase  1  : 98 unrouted;      REAL time: 4 secs
 
 Phase  2  : 85 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 10 unrouted;      REAL time: 4 secs 
+Phase  3  : 14 unrouted;      REAL time: 4 secs 
 
-Phase  4  : 22 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
+Phase  4  : 23 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
 Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
@@ -121,17 +121,11 @@ Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 4
 
 Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
-Updating file: PS2_Rx_Module.ncd with current fully routed design.
-
 Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
 Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
 Phase 10  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
-
-Phase 11  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
-
-Phase 12  : 0 unrouted; (Par is working to improve performance)     REAL time: 4 secs 
 
 Total REAL time to Router completion: 4 secs 
 Total CPU time to Router completion: 4 secs 
@@ -152,7 +146,7 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           CLK_BUFGP | BUFGMUX_X2Y10| No   |   12 |  0.039     |  0.170      |
+|           CLK_BUFGP | BUFGMUX_X2Y10| No   |   12 |  0.029     |  0.154      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -172,8 +166,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net CLK | SETUP       |         N/A|     4.149ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     1.053ns|            |       0|           0
+  Autotimespec constraint for clock net CLK | SETUP       |         N/A|     3.940ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     0.984ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 

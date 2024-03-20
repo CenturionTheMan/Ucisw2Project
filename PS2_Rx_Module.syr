@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.08 secs
  
 --> Reading design: PS2_Rx_Module.prj
 
@@ -247,9 +247,10 @@ Cell Usage :
 # BELS                             : 14
 #      INV                         : 1
 #      LUT2                        : 3
-#      LUT3                        : 3
-#      LUT3_L                      : 2
-#      LUT4                        : 5
+#      LUT3                        : 4
+#      LUT3_L                      : 1
+#      LUT4                        : 4
+#      LUT4_L                      : 1
 # FlipFlops/Latches                : 20
 #      FD                          : 2
 #      FDR                         : 3
@@ -321,17 +322,17 @@ Timing constraint: Default period analysis for Clock 'CLK'
   Total number of paths / destination ports: 67 / 38
 -------------------------------------------------------------------------
 Delay:               4.512ns (Levels of Logic = 3)
-  Source:            dataReg_2 (FF)
+  Source:            dataReg_9 (FF)
   Destination:       currentState_FSM_FFd1 (FF)
   Source Clock:      CLK rising
   Destination Clock: CLK rising
 
-  Data Path: dataReg_2 to currentState_FSM_FFd1
+  Data Path: dataReg_9 to currentState_FSM_FFd1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDSE:C->Q             2   0.591   0.622  dataReg_2 (dataReg_2)
-     LUT4:I0->O            1   0.704   0.455  currentState_FSM_FFd1-In131 (currentState_FSM_FFd1-In131)
+     FDSE:C->Q             2   0.591   0.622  dataReg_9 (dataReg_9)
+     LUT3:I0->O            1   0.704   0.455  currentState_FSM_FFd1-In17 (currentState_FSM_FFd1-In17)
      LUT4:I2->O            1   0.704   0.424  currentState_FSM_FFd1-In133 (currentState_FSM_FFd1-In133)
      LUT4:I3->O            1   0.704   0.000  currentState_FSM_FFd1-In1105 (currentState_FSM_FFd1-In)
      FDR:D                     0.308          currentState_FSM_FFd1
@@ -383,11 +384,11 @@ Offset:              5.795ns (Levels of Logic = 2)
 
 
 Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.81 secs
+Total CPU time to Xst completion: 2.95 secs
  
 --> 
 
-Total memory usage is 4514852 kilobytes
+Total memory usage is 4514840 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

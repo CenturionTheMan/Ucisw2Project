@@ -1,0 +1,2 @@
+vhdl work "PS2_Rx_Module.vhd"
+vhdl work "ps2TestBench.vhd"

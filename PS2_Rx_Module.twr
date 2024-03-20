@@ -45,9 +45,9 @@ Setup/Hold to clock CLK
             |Max Setup to|Max Hold to |                  | Clock  |
 Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
 ------------+------------+------------+------------------+--------+
-PS2_CLK     |    0.206(R)|    1.042(R)|CLK_BUFGP         |   0.000|
-PS2_DATA    |    0.198(R)|    1.060(R)|CLK_BUFGP         |   0.000|
-RESET       |    2.958(R)|    0.700(R)|CLK_BUFGP         |   0.000|
+PS2_CLK     |    0.153(R)|    1.090(R)|CLK_BUFGP         |   0.000|
+PS2_DATA    |    0.471(R)|    0.829(R)|CLK_BUFGP         |   0.000|
+RESET       |    3.068(R)|   -0.377(R)|CLK_BUFGP         |   0.000|
 ------------+------------+------------+------------------+--------+
 
 Clock CLK to Pad
@@ -55,15 +55,15 @@ Clock CLK to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-DATA_OUT<0> |    8.076(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<1> |    8.306(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<2> |    7.924(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<3> |    8.282(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<4> |    7.991(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<5> |    8.195(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<6> |    7.814(R)|CLK_BUFGP         |   0.000|
-DATA_OUT<7> |    7.192(R)|CLK_BUFGP         |   0.000|
-DATA_READY  |   10.171(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<0> |    8.735(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<1> |    8.361(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<2> |    8.713(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<3> |    7.813(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<4> |    7.921(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<5> |    8.171(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<6> |    7.776(R)|CLK_BUFGP         |   0.000|
+DATA_OUT<7> |    8.009(R)|CLK_BUFGP         |   0.000|
+DATA_READY  |   10.061(R)|CLK_BUFGP         |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock CLK
@@ -71,11 +71,11 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    4.149|         |         |         |
+CLK            |    3.940|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Wed Mar 20 17:59:06 2024 
+Analysis completed Wed Mar 20 19:26:31 2024 
 --------------------------------------------------------------------------------
 
 Trace Settings:
