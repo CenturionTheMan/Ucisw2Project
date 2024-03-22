@@ -1,2 +1,4 @@
-AR ps2_rx_module behavioral D:/Ucisw2Project/PS2_Rx_Module.vhd sub00/vhpl01 1710959174
-EN ps2_rx_module NULL D:/Ucisw2Project/PS2_Rx_Module.vhd sub00/vhpl00 1710959173
+EN testschem NULL C:/Users/lab/Czw1115/Ucisw2Project/testSchem.vhf sub00/vhpl02 1711023681
+AR ps2_rx_module behavioral C:/Users/lab/Czw1115/Ucisw2Project/PS2_Rx_Module.vhd sub00/vhpl01 1711023680
+AR testschem behavioral C:/Users/lab/Czw1115/Ucisw2Project/testSchem.vhf sub00/vhpl03 1711023682
+EN ps2_rx_module NULL C:/Users/lab/Czw1115/Ucisw2Project/PS2_Rx_Module.vhd sub00/vhpl00 1711023679

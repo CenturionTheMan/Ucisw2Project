@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "D:/Ucisw2Project/ps2TestBench.vhd";
+static const char *ng0 = "C:/Users/lab/Czw1115/Ucisw2Project/ps2TestBench.vhd";
 extern char *IEEE_P_2592010699;
 
 unsigned char ieee_p_2592010699_sub_2507238156_503743352(char *, unsigned char , unsigned char );
@@ -180,7 +180,7 @@ LAB0:    t6 = (t5 + 0U);
     t9 = (t9 + 1);
     t7 = (t6 + 12U);
     *((unsigned int *)t7) = t9;
-    t7 = (t0 + 5836);
+    t7 = (t0 + 6052);
     t13 = ((IEEE_P_2592010699) + 4024);
     t15 = (t14 + 0U);
     t16 = (t15 + 0U);
@@ -423,7 +423,7 @@ LAB6:    *((char **)t1) = &&LAB7;
 LAB1:    return;
 LAB4:    xsi_set_current_line(106, ng0);
     t2 = (t0 + 3168);
-    t4 = (t0 + 5838);
+    t4 = (t0 + 6054);
     work_a_4060809181_2372691052_sub_3811968552_952992138(t0, t2, t4);
     xsi_set_current_line(107, ng0);
     t3 = (200 * 1000000LL);
@@ -439,7 +439,7 @@ LAB7:    goto LAB5;
 
 LAB8:    xsi_set_current_line(108, ng0);
     t2 = (t0 + 3168);
-    t4 = (t0 + 5846);
+    t4 = (t0 + 6062);
     work_a_4060809181_2372691052_sub_3811968552_952992138(t0, t2, t4);
     xsi_set_current_line(109, ng0);
 

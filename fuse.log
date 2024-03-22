@@ -1,10 +1,10 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -o "D:/Ucisw2Project/ps2TestBench_isim_beh.exe" -prj "D:/Ucisw2Project/ps2TestBench_beh.prj" "work.ps2TestBench" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -o "C:/Users/lab/Czw1115/Ucisw2Project/ps2TestBench_isim_beh.exe" -prj "C:/Users/lab/Czw1115/Ucisw2Project/ps2TestBench_beh.prj" "work.ps2TestBench" 
 ISim P.20131013 (signature 0x7708f090)
-Number of CPUs detected in this system: 16
-Turning on mult-threading, number of parallel sub-compilation jobs: 32 
+Number of CPUs detected in this system: 12
+Turning on mult-threading, number of parallel sub-compilation jobs: 24 
 Determining compilation order of HDL files
-Parsing VHDL file "D:/Ucisw2Project/PS2_Rx_Module.vhd" into library work
-Parsing VHDL file "D:/Ucisw2Project/ps2TestBench.vhd" into library work
+Parsing VHDL file "C:/Users/lab/Czw1115/Ucisw2Project/PS2_Rx_Module.vhd" into library work
+Parsing VHDL file "C:/Users/lab/Czw1115/Ucisw2Project/ps2TestBench.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
@@ -15,8 +15,7 @@ Compiling package std_logic_signed
 Compiling architecture behavioral of entity PS2_Rx_Module [ps2_rx_module_default]
 Compiling architecture behavior of entity ps2testbench
 Time Resolution for simulation is 1ps.
-WARNING:Simulator - Unable to copy libPortabilityNOSH.dll to the simulation executable directory: boost::filesystem::copy_file: The system cannot find the path specified, "isim\ps2TestBench_isim_beh.exe.sim\libPortability.dll".
 Compiled 8 VHDL Units
-Built simulation executable D:/Ucisw2Project/ps2TestBench_isim_beh.exe
-Fuse Memory Usage: 37532 KB
-Fuse CPU Usage: 358 ms
+Built simulation executable C:/Users/lab/Czw1115/Ucisw2Project/ps2TestBench_isim_beh.exe
+Fuse Memory Usage: 36960 KB
+Fuse CPU Usage: 405 ms

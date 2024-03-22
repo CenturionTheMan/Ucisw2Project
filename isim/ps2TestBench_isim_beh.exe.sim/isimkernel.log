@@ -2,27 +2,27 @@ Command line:
    ps2TestBench_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  51738
+     -socket  54791
 
-Wed Mar 20 20:10:23 2024
+Thu Mar 21 12:14:16 2024
 
 
- Elaboration Time: 0.015625 sec
+ Elaboration Time: 0.03125 sec
 
- Current Memory Usage: 5151.33 Meg
+ Current Memory Usage: 5151.48 Meg
 
  Total Signals          : 19
  Total Nets             : 34
  Total Signal Drivers   : 12
  Total Blocks           : 6
  Total Primitive Blocks : 5
- Total Processes        : 10
+ Total Processes        : 11
  Total Traceable Variables  : 16
  Total Scalar Nets and Variables : 536
 
- Total Simulation Time: 0.296875 sec
+ Total Simulation Time: 0.765625 sec
 
- Current Memory Usage: 4994.05 Meg
+ Current Memory Usage: 5151.48 Meg
 
-Wed Mar 20 20:11:55 2024
+Thu Mar 21 12:20:28 2024
 

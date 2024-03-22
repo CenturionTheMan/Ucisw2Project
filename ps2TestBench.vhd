@@ -54,15 +54,15 @@ ARCHITECTURE behavior OF ps2TestBench IS
    --Inputs
    signal CLK : std_logic := '0';
    signal RESET : std_logic := '0';
-   signal PS2_CLK : std_logic := '0';
-   signal PS2_DATA : std_logic := '0';
+   signal PS2_CLK : std_logic := '1';
+   signal PS2_DATA : std_logic := '1';
 
  	--Outputs
    signal DATA_OUT : std_logic_vector(7 downto 0);
    signal DATA_READY : std_logic;
 
    -- Clock period definitions
-   constant CLK_period : time := 10000 ns;
+   constant CLK_period : time := 20 ns;
  
 BEGIN
  

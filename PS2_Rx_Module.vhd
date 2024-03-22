@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.NUMERIC_STD.ALL; --- check
-use ieee.std_logic_signed.all; --- check
+use IEEE.NUMERIC_STD.ALL;
+use ieee.std_logic_signed.all;
 
 entity PS2_Rx_Module is
     Port ( CLK : in  STD_LOGIC;
@@ -18,7 +18,7 @@ architecture Behavioral of PS2_Rx_Module is
 	signal currentState, nextState : state;
 	signal dataReg: STD_LOGIC_VECTOR (10 downto 0) := "11111111111";
 	signal bitCounter: STD_LOGIC_VECTOR (3 downto 0) := "0000";
-	signal ps2ClockChangeReg: STD_LOGIC_VECTOR (1 downto 0) := "00";
+	signal ps2ClockChangeReg: STD_LOGIC_VECTOR (1 downto 0) := "11";
 	signal isPs2ClockFalingEdge: STD_LOGIC := '0';
 	signal parityCheck: STD_LOGIC := '0';
 	
@@ -29,14 +29,17 @@ begin
 		if rising_edge(CLK) then
 			ps2ClockChangeReg(1) <= PS2_CLK; -- index 1 is current value
 			ps2ClockChangeReg(0) <= ps2ClockChangeReg(1); -- index 0 is previous value
-			isPs2ClockFalingEdge <= ps2ClockChangeReg(0) and (not ps2ClockChangeReg(1)); -- '1' -> '0' == falling edge
 		end if;
 	end process;
+	
+	-- assgin falling edge flag
+	isPs2ClockFalingEdge <= ps2ClockChangeReg(0) and (not ps2ClockChangeReg(1)); -- '1' -> '0' == falling edge
+
 	
 	-- Count recived bits (used for state identyfication)
 	COUNTER_PROCESS : process(CLK) begin
 		if rising_edge(CLK) then
-			if RESET = '1' or currentState = idle then
+			if RESET = '1' or currentState = dataReady then
 				bitCounter <= X"0";
 			elsif (isPs2ClockFalingEdge = '1') then --check if PS2_CLOCK == faling edge
 				bitCounter <= bitCounter + 1;
@@ -58,8 +61,8 @@ begin
 	end process;
 	
 	-- check parity
-	parityCheck <= not(dataReg(10) xor dataReg(8) xor dataReg(7) xor dataReg(6) xor dataReg(5) 
-						xor dataReg(4) xor dataReg(3) xor dataReg(2) xor dataReg(1) xor dataReg(0));
+	parityCheck <= not(dataReg(8) xor dataReg(7) xor dataReg(6) xor dataReg(5) 
+						xor dataReg(4) xor dataReg(3) xor dataReg(2) xor dataReg(1));
 
 	
 	-- assign state
@@ -109,4 +112,3 @@ begin
 	DATA_OUT <= dataReg(8 downto 1);
 	
 end Behavioral;
-

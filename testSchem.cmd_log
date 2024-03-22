@@ -1,0 +1,24 @@
+xst -intstyle ise -ifn "C:/Users/lab/Czw1115/Ucisw2Project/testSchem.xst" -ofn "C:/Users/lab/Czw1115/Ucisw2Project/testSchem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd "RS232 (1)" -nt timestamp -uc "GenIO (2)/GenIO.ucf" -p xc3s500e-fg320-4 testSchem.ngc testSchem.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o testSchem_map.ncd testSchem.ngd testSchem.pcf 
+par -w -intstyle ise -ol high -t 1 testSchem_map.ncd testSchem.ncd testSchem.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml testSchem.twx testSchem.ncd -o testSchem.twr testSchem.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd "RS232 (1)" -nt timestamp -uc "GenIO (2)/GenIO.ucf" -p xc3s500e-fg320-4 testSchem.ngc testSchem.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o testSchem_map.ncd testSchem.ngd testSchem.pcf 
+par -w -intstyle ise -ol high -t 1 testSchem_map.ncd testSchem.ncd testSchem.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml testSchem.twx testSchem.ncd -o testSchem.twr testSchem.pcf 
+bitgen -intstyle ise -f testSchem.ut testSchem.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd "RS232 (1)" -nt timestamp -uc "GenIO (2)/GenIO.ucf" -p xc3s500e-fg320-4 testSchem.ngc testSchem.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o testSchem_map.ncd testSchem.ngd testSchem.pcf 
+par -w -intstyle ise -ol high -t 1 testSchem_map.ncd testSchem.ncd testSchem.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml testSchem.twx testSchem.ncd -o testSchem.twr testSchem.pcf 
+ngdbuild -intstyle ise -dd _ngo -sd "RS232 (1)" -nt timestamp -uc "GenIO (2)/GenIO.ucf" -p xc3s500e-fg320-4 testSchem.ngc testSchem.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o testSchem_map.ncd testSchem.ngd testSchem.pcf 
+par -w -intstyle ise -ol high -t 1 testSchem_map.ncd testSchem.ncd testSchem.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml testSchem.twx testSchem.ncd -o testSchem.twr testSchem.pcf 
+bitgen -intstyle ise -f testSchem.ut testSchem.ncd 
+xst -intstyle ise -ifn "C:/Users/lab/Czw1115/Ucisw2Project/testSchem.xst" -ofn "C:/Users/lab/Czw1115/Ucisw2Project/testSchem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd "RS232 (1)" -nt timestamp -uc "GenIO (2)/GenIO.ucf" -p xc3s500e-fg320-4 testSchem.ngc testSchem.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr off -c 100 -o testSchem_map.ncd testSchem.ngd testSchem.pcf 
+par -w -intstyle ise -ol high -t 1 testSchem_map.ncd testSchem.ncd testSchem.pcf 
+trce -intstyle ise -v 3 -s 4 -n 3 -fastpaths -xml testSchem.twx testSchem.ncd -o testSchem.twr testSchem.pcf 

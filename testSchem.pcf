@@ -1,0 +1,15 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Thu Mar 21 13:21:30 2024
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "PS2_Clk" LOCATE = SITE "G14" LEVEL 1;
+COMP "PS2_Data" LOCATE = SITE "G13" LEVEL 1;
+COMP "BTN_SOUTH" LOCATE = SITE "K17" LEVEL 1;
+COMP "Clk_50MHz" LOCATE = SITE "C9" LEVEL 1;
+COMP "RS232_TxD" LOCATE = SITE "M14" LEVEL 1;
+NET "Clk_50MHz_BUFGP/IBUFG" BEL "Clk_50MHz_BUFGP/BUFG.GCLKMUX"
+        USELOCALCONNECT;
+NET "Clk_50MHz_BUFGP/IBUFG" PERIOD = 20 ns HIGH 50%;
+SCHEMATIC END;
+

@@ -1,0 +1,9 @@
+[Inputs]
+CLK
+RESET
+PS2_CLK
+PS2_DATA
+[Outputs]
+DATA_READY
+=DATA_OUT[7:0]=
+[BiDir]
